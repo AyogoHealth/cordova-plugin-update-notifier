@@ -1,0 +1,20 @@
+# Copyright 2017 Ayogo Health Inc
+root = true
+
+[*]
+end_of_line = lf
+indent_style = space
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_size = 2
+
+[*.java]
+indent_size = 4
+
+[*.swift]
+indent_size = 4
+
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false

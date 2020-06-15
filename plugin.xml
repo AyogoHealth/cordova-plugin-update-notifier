@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2020 Ayogo Health Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-update-notifier" version="1.0.0">
+  <name>cordova-plugin-update-notifier</name>
+  <description>Cordova plugin for showing a notification for app updates.</description>
+  <keywords>cordova,ios,android</keywords>
+  <license>Apache 2.0</license>
+  <repo>https://github.com/AyogoHealth/cordova-plugin-update-notifier.git</repo>
+  <issues>https://github.com/AyogoHealth/cordova-plugin-update-notifier/issues</issues>
+
+  <engines>
+    <engine name="cordova-ios" version=">= 5.0.0" />
+    <engine name="cordova-android" version=">= 8.0.0" />
+  </engines>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="UpdateNotifier">
+        <param name="ios-package" value="CDVUpdateNotifierPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+
+      <preference name="SwiftVersion" value="5.0" />
+    </config-file>
+
+    <source-file src="src/ios/UpdateNotifierPlugin.swift" />
+
+    <podspec>
+      <config></config>
+      <pods use-frameworks="true">
+        <pod name="Siren" git="https://github.com/ArtSabintsev/Siren.git" branch="swift5.0" swift-version="5.0" />
+      </pods>
+    </podspec>
+  </platform>
+
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="UpdateNotifier">
+        <param name="android-package" value="com.ayogo.cordova.updatenotifier.UpdateNotifierPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/UpdateNotifierPlugin.java" target-dir="src/com/ayogo/cordova/updatenotifier" />
+
+    <config-file target="res/values/strings.xml" parent="/resources">
+      <string name="app_update_ready">An update has just been downloaded.</string>
+      <string name="app_update_install">RESTART</string>
+    </config-file>
+
+    <framework src="com.android.support:design:[28.0.0,)" />
+    <framework src="com.google.android.play:core:[1.5,2)" />
+  </platform>
+</plugin>
