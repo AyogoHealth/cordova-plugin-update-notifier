@@ -14,8 +14,8 @@
   limitations under the License.
 -->
 
-cordova-plugin-upate-notifier
-=============================
+cordova-plugin-update-notifier
+==============================
 
 This plugin provides a mechanism for showing an in-app notification when a new
 version of the app is available for download from the App Store or Play Store.
@@ -53,4 +53,4 @@ Licence
 Released under the Apache 2.0 Licence.  
 Copyright © 2020 Ayogo Health Inc.
 
-[coc]: https://github.com/AyogoHealth/cordova-plugin-update-notifier/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/AyogoHealth/cordova-plugin-update-notifier/blob/main/CODE_OF_CONDUCT.md
