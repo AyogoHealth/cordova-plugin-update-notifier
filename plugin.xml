@@ -49,7 +49,7 @@ limitations under the License.
 
 
   <platform name="android">
-    <config-file target="app/src/main/res/xml/config.xml" parent="/*">
+    <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UpdateNotifier">
         <param name="android-package" value="com.ayogo.cordova.updatenotifier.UpdateNotifierPlugin" />
         <param name="onload" value="true" />
@@ -58,7 +58,7 @@ limitations under the License.
 
     <source-file src="src/android/UpdateNotifierPlugin.java" target-dir="src/com/ayogo/cordova/updatenotifier" />
 
-    <config-file target="app/src/main/res/values/strings.xml" parent="/resources">
+    <config-file target="res/values/strings.xml" parent="/resources">
       <string name="app_update_ready">An update has just been downloaded.</string>
       <string name="app_update_install">RESTART</string>
     </config-file>

@@ -138,9 +138,11 @@ public class UpdateNotifierPlugin extends CordovaPlugin {
             public void run() {
                 Activity activity = cordova.getActivity();
 
-                Snackbar snackbar = Snackbar.make(webView.getView(), activity.getString(activity.getResources().getIdentifier("app_update_ready", "string", activity.getPackageName())), Snackbar.LENGTH_INDEFINITE);
+                int descID = activity.getResources().getIdentifier("app_update_ready", "string", activity.getPackageName());
+                Snackbar snackbar = Snackbar.make(webView.getView(), (descID != 0 ? activity.getString(descID) : "An update has just been downloaded."), Snackbar.LENGTH_INDEFINITE);
 
-                snackbar.setAction(activity.getString(activity.getResources().getIdentifier("app_update_install", "string", activity.getPackageName())), new View.OnClickListener() {
+                int actID = activity.getResources().getIdentifier("app_update_install", "string", activity.getPackageName());
+                snackbar.setAction((actID != 0 ? activity.getString(actID) : "INSTALL"), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (mAppUpdateManager != null){
