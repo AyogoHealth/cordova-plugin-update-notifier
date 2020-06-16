@@ -42,7 +42,7 @@ limitations under the License.
     <podspec>
       <config></config>
       <pods use-frameworks="true">
-        <pod name="Siren" git="https://github.com/ArtSabintsev/Siren.git" branch="swift5.0" swift-version="5.0" />
+        <pod name="Siren" />
       </pods>
     </podspec>
   </platform>
