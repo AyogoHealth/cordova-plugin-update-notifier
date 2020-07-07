@@ -28,6 +28,12 @@ class UpdateNotifierPlugin : CDVPlugin {
 
 
     @objc internal func _didFinishLaunchingWithOptions(_ notification : NSNotification) {
-        Siren.shared.wail()
+        let siren = Siren.shared
+
+        if let countryCode = self.commandDelegate.settings["sirencountrycode"] as? String {
+            siren.apiManager = APIManager(countryCode: countryCode)
+        }
+
+        siren.wail()
     }
 }

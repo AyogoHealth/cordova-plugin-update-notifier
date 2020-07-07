@@ -51,6 +51,19 @@ add the following to `app/src/main/res/values/strings.xml`:
 <string name="app_update_install">RESTART</string>
 ```
 
+Configuration Preferences
+------------
+
+### Non US-AppStore iOS apps
+
+Siren's implementation for iOS requires specifying a country code if your app is not published to the US AppStore.
+
+```xml
+<preference name="SirenCountryCode" value="CA" />
+```
+
+For Capacitor, add `"SirenCountryCode": "CA"` to your capacitor.config.json file.
+
 
 Supported Platforms
 -------------------
