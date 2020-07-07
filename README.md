@@ -51,6 +51,14 @@ add the following to `app/src/main/res/values/strings.xml`:
 <string name="app_update_install">RESTART</string>
 ```
 
+#### Required Parameters
+
+Due to Siren's implementation, if your application is not available on the US appstore please specify a country code.
+
+```xml
+<preference name="SirenCountryCode" value="CA"/>
+```
+
 
 Supported Platforms
 -------------------
