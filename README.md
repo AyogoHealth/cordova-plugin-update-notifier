@@ -68,6 +68,7 @@ For Capacitor, add `"SirenCountryCode": "CA"` to your capacitor.config.json file
 Supported Platforms
 -------------------
 
+* **Cordova CLI** (cordova-cli >= 9.0.0)
 * **iOS** (cordova-ios >= 5.0.0, or capacitor)
 * **Android** (cordova-android >= 8.0.0, or capacitor)
 
