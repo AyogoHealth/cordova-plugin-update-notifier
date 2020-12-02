@@ -29,7 +29,19 @@ class UpdateNotifierPlugin : CDVPlugin {
 
     @objc internal func _didFinishLaunchingWithOptions(_ notification : NSNotification) {
         let siren = Siren.shared
+
+        if let alertType = self.commandDelegate.settings["sirenalerttype"] as? String {
+            switch alertType {
+            case "critical":
         siren.rulesManager = RulesManager(globalRules: .critical)
+                break;
+            case "annoying":
+                siren.rulesManager = RulesManager(globalRules: .annoying)
+                break;
+            default:
+                siren.rulesManager = RulesManager(globalRules: .default)
+            }
+        }
 
         if let countryCode = self.commandDelegate.settings["sirencountrycode"] as? String {
             siren.apiManager = APIManager(countryCode: countryCode)

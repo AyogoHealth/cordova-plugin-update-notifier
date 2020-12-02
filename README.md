@@ -54,6 +54,15 @@ add the following to `app/src/main/res/values/strings.xml`:
 Configuration Preferences
 ------------
 
+### Alert Type
+
+Siren's implementation for iOS allows for different alert types (see https://github.com/ArtSabintsev/Siren#screenshots). You can set the value to "critical" or "annyoing" in config.xml.
+
+```xml
+<preference name="SirenAlertType" value="critical" />
+<preference name="SirenAlertType" value="annoying" />
+```
+
 ### Non US-AppStore iOS apps
 
 Siren's implementation for iOS requires specifying a country code if your app is not published to the US AppStore.
