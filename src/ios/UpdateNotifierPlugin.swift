@@ -28,12 +28,18 @@ class UpdateNotifierPlugin : CDVPlugin {
 
 
     @objc internal func _didFinishLaunchingWithOptions(_ notification : NSNotification) {
+        // Check if there's an MDM setting to disable update checking
+        let disableUpdateCheck = UserDefaults.standard.dictionary(forKey: "com.apple.configuration.managed")?["DisableUpdateCheck"] as? String
+        if (disableUpdateCheck == "true") {
+            return;
+        }
+
         let siren = Siren.shared
 
         if let alertType = self.commandDelegate.settings["sirenalerttype"] as? String {
             switch alertType {
             case "critical":
-        siren.rulesManager = RulesManager(globalRules: .critical)
+                siren.rulesManager = RulesManager(globalRules: .critical)
                 break;
             case "annoying":
                 siren.rulesManager = RulesManager(globalRules: .annoying)

@@ -74,6 +74,10 @@ Siren's implementation for iOS requires specifying a country code if your app is
 For Capacitor, add `"SirenCountryCode": "CA"` to your capacitor.config.json file.
 
 
+### Managed App Configuration
+
+When deploying an app using an MDM, you can take advantage of [Managed App Configuration](https://developer.apple.com/library/archive/samplecode/sc2279/Introduction/Intro.html) to disable the update check. Simply create a preference called "DisableUpdateCheck" and set it's value to "true".
+
 Supported Platforms
 -------------------
 
