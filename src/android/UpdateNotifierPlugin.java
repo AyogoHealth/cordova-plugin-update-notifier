@@ -41,6 +41,7 @@ import static android.app.Activity.RESULT_OK;
 public class UpdateNotifierPlugin extends CordovaPlugin {
     private AppUpdateManager mAppUpdateManager;
     private InstallStateUpdatedListener mInstallListener;
+    private Boolean mHasPrompted = false;
 
     private final String TAG = "UpdateNotifierPlugin";
     private static final Integer RC_APP_UPDATE = 577;
@@ -79,6 +80,10 @@ public class UpdateNotifierPlugin extends CordovaPlugin {
         mAppUpdateManager = AppUpdateManagerFactory.create(cordova.getActivity());
         mAppUpdateManager.registerListener(mInstallListener);
 
+        if (mHasPrompted == true) {
+            return;
+        }
+
         Task<AppUpdateInfo> appUpdateInfoTask = mAppUpdateManager.getAppUpdateInfo();
 
         appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
@@ -103,6 +108,7 @@ public class UpdateNotifierPlugin extends CordovaPlugin {
                 }
             }
         });
+        mHasPrompted = true;
     }
 
     /**
