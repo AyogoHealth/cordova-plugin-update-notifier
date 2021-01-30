@@ -56,11 +56,17 @@ Configuration Preferences
 
 ### Alert Type
 
-Siren's implementation for iOS allows for different alert types (see https://github.com/ArtSabintsev/Siren#screenshots). You can set the value to "critical" or "annyoing" in config.xml.
+Siren's implementation for iOS allows for different alert types (see https://github.com/ArtSabintsev/Siren#screenshots). You can set the value to "critical" or "annoying" in config.xml.
 
 ```xml
 <preference name="SirenAlertType" value="critical" />
 <preference name="SirenAlertType" value="annoying" />
+```
+
+For Android, you can force all updates to be considered "immediate" with the `AndroidUpdateAlertType` preference in config.xml.
+
+```xml
+<preference name="AndroidUpdateAlertType" value="Immediate" />
 ```
 
 ### Non US-AppStore iOS apps

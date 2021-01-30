@@ -41,6 +41,7 @@ import static android.app.Activity.RESULT_OK;
 public class UpdateNotifierPlugin extends CordovaPlugin {
     private AppUpdateManager mAppUpdateManager;
     private InstallStateUpdatedListener mInstallListener;
+    private Boolean mHasPrompted = false;
 
     private final String TAG = "UpdateNotifierPlugin";
     private static final Integer RC_APP_UPDATE = 577;
@@ -79,20 +80,26 @@ public class UpdateNotifierPlugin extends CordovaPlugin {
         mAppUpdateManager = AppUpdateManagerFactory.create(cordova.getActivity());
         mAppUpdateManager.registerListener(mInstallListener);
 
+        if (mHasPrompted == true) {
+            return;
+        }
+
         Task<AppUpdateInfo> appUpdateInfoTask = mAppUpdateManager.getAppUpdateInfo();
+
+        final Boolean forceImmediate = preferences.getString("androidupdatealerttype", "").equalsIgnoreCase("immediate");
 
         appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
             @Override
             public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                if (!forceImmediate && appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
                     try {
-                        mAppUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, cordova.getActivity(), RC_APP_UPDATE);
+                        mAppUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.FLEXIBLE, cordova.getActivity(), RC_APP_UPDATE);
                     } catch (IntentSender.SendIntentException e) {
                         e.printStackTrace();
                     }
-                } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
                     try {
-                        mAppUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.FLEXIBLE, cordova.getActivity(), RC_APP_UPDATE);
+                        mAppUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, cordova.getActivity(), RC_APP_UPDATE);
                     } catch (IntentSender.SendIntentException e) {
                         e.printStackTrace();
                     }
@@ -103,6 +110,7 @@ public class UpdateNotifierPlugin extends CordovaPlugin {
                 }
             }
         });
+        mHasPrompted = true;
     }
 
     /**
