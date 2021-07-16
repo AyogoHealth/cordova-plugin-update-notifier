@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright 2020 Ayogo Health Inc.
+Copyright 2020-2021 Ayogo Health Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ limitations under the License.
 
   <engines>
     <engine name="cordova-ios" version=">= 5.0.0" />
-    <engine name="cordova-android" version=">= 8.0.0" />
+    <engine name="cordova-android" version=">= 9.0.0" />
   </engines>
 
   <platform name="ios">
@@ -63,7 +63,7 @@ limitations under the License.
       <string name="app_update_install">RESTART</string>
     </config-file>
 
-    <framework src="com.android.support:design:[26.0.0,)" />
+    <framework src="com.google.android.material:material:[1.0.0,)" />
     <framework src="com.google.android.play:core:[1.5,2)" />
   </platform>
 </plugin>
