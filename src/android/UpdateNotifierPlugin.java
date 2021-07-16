@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Ayogo Health Inc.
+ * Copyright 2020-2021 Ayogo Health Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package com.ayogo.cordova.updatenotifier;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 
 import org.apache.cordova.CordovaPlugin;

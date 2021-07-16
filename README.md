@@ -1,5 +1,5 @@
 <!--
-  Copyright 2020 Ayogo Health Inc.
+  Copyright 2020-2021 Ayogo Health Inc.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -23,6 +23,10 @@ version of the app is available for download from the App Store or Play Store.
 For iOS, this uses the [Siren][siren] library.
 
 For Android, this implements the [Play Store In-App Update][playlib] system.
+
+> ℹ️ **This plugin uses AndroidX!**
+>
+> Use version 1.x if you are building without AndroidX enabled.
 
 
 Installation
@@ -89,7 +93,7 @@ Supported Platforms
 
 * **Cordova CLI** (cordova-cli >= 9.0.0)
 * **iOS** (cordova-ios >= 5.0.0, or capacitor)
-* **Android** (cordova-android >= 8.0.0, or capacitor)
+* **Android** (cordova-android >= 9.0.0, or capacitor) with AndroidX
 
 
 Contributing
@@ -107,7 +111,7 @@ Licence
 -------
 
 Released under the Apache 2.0 Licence.  
-Copyright © 2020 Ayogo Health Inc.
+Copyright © 2020-2021 Ayogo Health Inc.
 
 [siren]: https://sabintsev.com/Siren/
 [playlib]: https://developer.android.com/guide/playcore/in-app-updates
