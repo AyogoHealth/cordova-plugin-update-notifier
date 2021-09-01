@@ -63,7 +63,7 @@ limitations under the License.
       <string name="app_update_install">RESTART</string>
     </config-file>
 
-    <framework src="com.google.android.material:material:[1.0.0,)" />
+    <framework src="com.google.android.material:material:[1.0.0,1.5.0)" />
     <framework src="com.google.android.play:core:[1.5,2)" />
   </platform>
 </plugin>
