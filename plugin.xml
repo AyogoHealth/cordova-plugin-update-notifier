@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright 2020-2021 Ayogo Health Inc.
+Copyright 2020-2023 Ayogo Health Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -54,6 +54,8 @@ limitations under the License.
         <param name="android-package" value="com.ayogo.cordova.updatenotifier.UpdateNotifierPlugin" />
         <param name="onload" value="true" />
       </feature>
+
+      <preference name="AndroidXEnabled" value="true" />
     </config-file>
 
     <source-file src="src/android/UpdateNotifierPlugin.java" target-dir="src/com/ayogo/cordova/updatenotifier" />
@@ -63,7 +65,10 @@ limitations under the License.
       <string name="app_update_install">RESTART</string>
     </config-file>
 
-    <framework src="com.google.android.material:material:[1.0.0,1.5.0)" />
-    <framework src="com.google.android.play:core:[1.5,2)" />
+    <preference name="ANDROIDX_MATERIAL_DESIGN_VERSION" default="[1.0,2)" />
+    <preference name="PLAY_APP_UPDATE_SDK_VERSION" default="[2.0,3)" />
+
+    <framework src="com.google.android.material:material:$ANDROIDX_MATERIAL_DESIGN_VERSION" />
+    <framework src="com.google.android.play:app-update:$PLAY_APP_UPDATE_SDK_VERSION" />
   </platform>
 </plugin>
