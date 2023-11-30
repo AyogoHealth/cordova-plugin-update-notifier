@@ -1,5 +1,5 @@
 <!--
-  Copyright 2020-2021 Ayogo Health Inc.
+  Copyright 2020-2023 Ayogo Health Inc.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -36,6 +36,20 @@ Installation
 
 ```
 cordova plugin add cordova-plugin-update-notifier
+```
+
+#### Specifying Android Library Versions
+You may need to specify specific versions of the Android Material Design or
+Play App Update frameworks, depending on the Android SDK version and build
+tools that your app is targeting. You can override these by specifying versions
+as variables when installing.
+
+For example:
+
+```
+cordova plugin add cordova-plugin-update-notifier \
+    --variable ANDROIDX_MATERIAL_DESIGN_VERSION=1.8.0 \
+    --variable PLAY_APP_UPDATE_SDK_VERSION=2.1.0
 ```
 
 ### Capacitor
@@ -111,7 +125,7 @@ Licence
 -------
 
 Released under the Apache 2.0 Licence.  
-Copyright © 2020-2021 Ayogo Health Inc.
+Copyright © 2020-2023 Ayogo Health Inc.
 
 [siren]: https://sabintsev.com/Siren/
 [playlib]: https://developer.android.com/guide/playcore/in-app-updates
