@@ -44,6 +44,15 @@ class UpdateNotifierPlugin : CDVPlugin {
             case "annoying":
                 siren.rulesManager = RulesManager(globalRules: .annoying)
                 break;
+            case "persistent":
+                siren.rulesManager = RulesManager(globalRules: .persistent)
+                break;
+            case "hinting":
+                siren.rulesManager = RulesManager(globalRules: .hinting)
+                break;
+            case "relaxed":
+                siren.rulesManager = RulesManager(globalRules: .relaxed)
+                break;
             default:
                 siren.rulesManager = RulesManager(globalRules: .default)
             }
